@@ -48,7 +48,7 @@ $_SESSION['coeficientes'] = $coeficientes;
                 <button class="btn btn-primary" style="width: 33%;" disabled="">Áreas e Coeficientes Médios</button>
             </div>
         </div>
-        <div class="container" style="border-top:  5px #000 solid;border-bottom:  5px #000 solid;  border-radius: 25px; margin-top: 10px;">
+        <div class="container" >
 
             <form method="POST" action="relatorio.php">
 

@@ -18,9 +18,9 @@
             <div class="form-control">
                 <button class="btn btn-primary seta-direita" style="width: 33%; border-radius: ">Dados Iniciais</button>
                 <button class="btn btn-secondary" style="width: 33%;" disabled="">Coeficientes Médios</button>
-                <button class="btn btn-secondary" style="width: 33%;" disabled="">Dados Iniciais</button>
+                <button class="btn btn-secondary" style="width: 33%;" disabled="">Áreas e Coeficientes Médios</button>
             </div>
-            <div  style="border-top:  5px #000 solid;border-bottom:  5px #000 solid;  border-radius: 25px; margin-top: 10px;">
+            <div  >
                 <form method="GET" action="coeficientes_medios.php">
                     <div class="row">
                         <div class="col-6" style="margin-top:20px;">
