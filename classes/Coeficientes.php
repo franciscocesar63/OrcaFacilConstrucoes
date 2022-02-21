@@ -170,28 +170,31 @@ class Coeficientes {
     public function somaDosCub($coef1, $coef2, $cub) {
         $cub1 = $cub;
         $soma1 = 0;
-        $array = [20];
-        $array_area = [20];
+        $array = array();
+        $array_area = array();
         $cnt = 0;
-        var_dump($coef1);
+        // var_dump($coef1);
+        // echo '<br><br><br>';
+        // var_dump($coef2);
+        // echo '<br><br><br>';
         foreach ($coef1 as $dado) {
-            if ($dado != null) {
+            if ($dado != NULL) {
                 $soma1 = $dado * $cub1;
                 $array[$cnt] = $soma1;
-                var_dump($cnt);
+                // var_dump($cnt);
             }
             $soma1 = 0;
             $cnt++;
         }
         $cnt1 = 0;
         foreach ($coef2 as $dado1) {
-            if ($dado1 != null) {
+            if ($dado1 != NULL) {
                 $array[$cnt1] *= $dado1;
                 $array_area[$cnt1] = $dado1;
             }
             $cnt1++;
         }
-        $array_total = [2];
+        $array_total = array();
         $array_total[0] = $array;
         $array_total[1] = $array_area;
         return $array_total;

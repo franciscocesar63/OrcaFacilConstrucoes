@@ -1,3 +1,4 @@
 php_flag output_buffering on
 ErrorDocument 404 /404.php
 php_value display_errors 1
+Options All -Indexes
