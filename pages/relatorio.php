@@ -22,27 +22,29 @@ $garagem_circulacao = filter_input(INPUT_POST, 'garagem_circulacao', FILTER_SANI
 $quintal = filter_input(INPUT_POST, 'quintal', FILTER_SANITIZE_STRING);
 $terraco_laje = filter_input(INPUT_POST, 'terraco_laje', FILTER_SANITIZE_STRING);
 $varandas = filter_input(INPUT_POST, 'varandas', FILTER_SANITIZE_STRING);
+
 $radio_coeficientes = new Coeficientes(
-    $ajardinamento,
-    $sem_acabamento,
-    $benfeitoria,
-    $servico_padrao,
-    $privativa_com_acabamento,
-    $privativa_sem_acabamento,
-    $verde,
-    $barrilete,
-    $caixa_agua,
-    $casa_maquinas,
-    $estacionamento_terreno,
-    $garagem_subsolo,
-    $garagem_circulacao,
-    $quintal,
-    $terraco_laje,
-    $varandas
+        $ajardinamento,
+        $sem_acabamento,
+        $benfeitoria,
+        $servico_padrao,
+        $privativa_com_acabamento,
+        $privativa_sem_acabamento,
+        $verde,
+        $barrilete,
+        $caixa_agua,
+        $casa_maquinas,
+        $estacionamento_terreno,
+        $garagem_subsolo,
+        $garagem_circulacao,
+        $quintal,
+        $terraco_laje,
+        $varandas
 );
 //Áreas
 $area_ajardinamento = filter_input(INPUT_POST, 'area_ajardinamento', FILTER_SANITIZE_STRING);
 $area_laje = filter_input(INPUT_POST, 'area_laje', FILTER_SANITIZE_STRING);
+
 $area_benfeitoria = filter_input(INPUT_POST, 'area_benfeitoria', FILTER_SANITIZE_STRING);
 $area_servico_padrao = filter_input(INPUT_POST, 'area_servico_padrao', FILTER_SANITIZE_STRING);
 $area_privativa_com_acabamento = filter_input(INPUT_POST, 'area_privativa_com_acabamento', FILTER_SANITIZE_STRING);
@@ -57,8 +59,12 @@ $area_garagem_circulacao = filter_input(INPUT_POST, 'area_garagem_circulacao', F
 $area_quintal = filter_input(INPUT_POST, 'area_quintal', FILTER_SANITIZE_STRING);
 $area_terraco_laje = filter_input(INPUT_POST, 'area_terraco_laje', FILTER_SANITIZE_STRING);
 $area_varandas = filter_input(INPUT_POST, 'area_varandas', FILTER_SANITIZE_STRING);
-$area_coeficientes = new Coeficientes($area_ajardinamento, $area_laje, $area_benfeitoria, $area_servico_padrao, $area_privativa_com_acabamento, $area_privativa_sem_acabamento, $area_verde, $area_barrilete, $area_caixa_agua, $area_casa_maquinas, $area_estacionamento_terreno, $area_garagem_subsolo, $area_garagem_circulacao, $area_quintal, $area_terraco_laje, $area_varandas);
-//var_dump($area_coeficientes);
+
+$area_coeficientes = new Coeficientes($area_ajardinamento, $area_laje, $area_benfeitoria,
+        $area_servico_padrao, $area_privativa_com_acabamento, $area_privativa_sem_acabamento, $area_verde,
+        $area_barrilete, $area_caixa_agua, $area_casa_maquinas, $area_estacionamento_terreno, $area_garagem_subsolo,
+        $area_garagem_circulacao, $area_quintal, $area_terraco_laje, $area_varandas);
+
 session_start();
 $orcamento_session = $_SESSION['orcamento'];
 $desoneracao = -1;
@@ -105,18 +111,89 @@ if ($tipo == 'G') {
 }
 
 $projeto = substr_replace($projeto, '', 0, 3);
-$projeto = substr_replace($projeto, '-', 1, 1);;
-
-
+$projeto = substr_replace($projeto, '-', 1, 1);
+;
 $dao = new CoeficienteDAO();
-
 $dado_cub = $dao->selectDados($mes, $regiao, $desoneracao, $padrao, $tipo);
 
+if ($_SESSION['residenciasTerreas'] == 'normal') {
+    $array_area = $area_coeficientes->somaDosCub($radio_coeficientes, $area_coeficientes, $dado_cub['valor']);
+    $valor_cub_total = $area_coeficientes->somaAreaCub($array_area);
+} else {
+    
+    //GARAGEM.
+    $sem_acabamento_garagem = filter_input(INPUT_POST, 'sem_acabamento_garagem', FILTER_SANITIZE_STRING);
+    $casa_maquinas_garagem = filter_input(INPUT_POST, 'casa_maquinas_garagem', FILTER_SANITIZE_STRING);
+    $garagem_subsolo_garagem = filter_input(INPUT_POST, 'garagem_subsolo_garagem', FILTER_SANITIZE_STRING);
+    $garagem_circulacao_garagem = filter_input(INPUT_POST, 'garagem_circulacao_garagem', FILTER_SANITIZE_STRING);
 
+    //TERREO.
+    $sem_acabamento_terreo = filter_input(INPUT_POST, 'sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $privativa_com_acabamento_terreo = filter_input(INPUT_POST, 'privativa_com_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $privativa_sem_acabamento_terreo = filter_input(INPUT_POST, 'privativa_sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $verde_terreo = filter_input(INPUT_POST, 'verde_terreo', FILTER_SANITIZE_STRING);
+    $casa_maquinas_terreo = filter_input(INPUT_POST, 'casa_maquinas_terreo', FILTER_SANITIZE_STRING);
+    $garagem_circulacao_terreo = filter_input(INPUT_POST, 'garagem_circulacao_terreo', FILTER_SANITIZE_STRING);
+    $quintal_terreo = filter_input(INPUT_POST, 'quintal_terreo', FILTER_SANITIZE_STRING);
+    
+    //TIPO.
+    $sem_acabamento_tipo = filter_input(INPUT_POST, 'sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+    $privativa_com_acabamento_tipo = filter_input(INPUT_POST, 'privativa_com_acabamento_tipo', FILTER_SANITIZE_STRING);
+    $privativa_sem_acabamento_tipo = filter_input(INPUT_POST, 'privativa_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+    
+    //TELHADO.
+    $sem_acabamento_terreo = filter_input(INPUT_POST, 'sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $verde_telhado = filter_input(INPUT_POST, 'verde_telhado', FILTER_SANITIZE_STRING);
+    $casa_maquinas_telhado = filter_input(INPUT_POST, 'casa_maquinas_telhado', FILTER_SANITIZE_STRING);
+    
+    
 
-$array_area = $area_coeficientes->somaDosCub($radio_coeficientes, $area_coeficientes, $dado_cub['valor']);
-$valor_cub_total = $area_coeficientes->somaAreaCub($array_area);
+    $area_laje_garagem = filter_input(INPUT_POST, 'area_laje_garagem', FILTER_SANITIZE_STRING);
+    $area_laje_terreo = filter_input(INPUT_POST, 'area_laje_terreo', FILTER_SANITIZE_STRING);
+    $area_laje_tipo = filter_input(INPUT_POST, 'area_laje_tipo', FILTER_SANITIZE_STRING);
+    $area_laje_telhado = filter_input(INPUT_POST, 'area_laje_telhado', FILTER_SANITIZE_STRING);
 
+    $coeficientes = [$sem_acabamento_terreo, $sem_acabamento_tipo, $sem_acabamento_telhado, $sem_acabamento_garagem];
+    $areasCoeficientes = [$area_laje_terreo, $area_laje_tipo, $area_laje_telhado, $area_laje_garagem];
+
+    $array_garagem = [
+        $sem_acabamento_garagem,
+        $casa_maquinas_garagem,
+        $garagem_subsolo_garagem,
+        $garagem_circulacao_garagem,
+    ];
+
+    $array_terreo = [
+        $ajardinamento,
+        $sem_acabamento_terreo,
+        $benfeitoria,
+        $privativa_com_acabamento_terreo,
+        $privativa_sem_acabamento_terreo,
+        $verde_terreo,
+        $estacionamento_terreno,
+        $casa_maquinas_terreo,
+        $garagem_circulacao_terreo,
+        $quintal_terreo,
+    ];
+    
+    $array_tipo = [
+        $servico_padrao,
+        $sem_acabamento_tipo,
+        $privativa_com_acabamento_tipo,
+        $privativa_sem_acabamento_tipo,
+        $varandas,
+    ];
+
+    $array_telhado = [
+        $sem_acabamento_telhado,
+        $verde_telhado,
+        $casa_maquinas_telhado,
+        $caixa_agua,
+        $terraco_laje,
+        $barrilete,
+        
+    ];
+}
 
 //referenciar o DomPDF com namespace
 use Dompdf\Dompdf;
@@ -149,7 +226,6 @@ $html = '
         <p style="text-decoration: underline; margin-left: 25px;"><strong>Especificação dos custos: </strong></p>
          ';
 
-
 $area = $array_area[0];
 //var_dump($area);
 //echo 'array area';
@@ -174,7 +250,7 @@ $valor_cub_total += $edificacao_calculo;
 $total = number_format($valor_cub_total, 2, ',', '.');
 // var_dump($total);
 $html .= " <center><h2 style='text-decoration: underline;'>Valor global da edificação</h2></center> "
-    . " <center><h1>R$ $total</h1></center> ";
+        . " <center><h1>R$ $total</h1></center> ";
 $custo = number_format($valor_cub_total / $orcamento_session->getArea_edificacao(), 2, ',', '.');
 $html .= "<h3>Custo por m² da área de construção (R$/m²) – R$ $custo</h3>";
 $html .= "<div>";
@@ -209,14 +285,12 @@ foreach ($dados as $dado) {
     $array_area = $area_coeficientes->somaDosCub($radio_coeficientes, $area_coeficientes, $dado_cub['valor']);
     $soma = $area_coeficientes->somaAreaCub($array_area);
 
-    $data[$i] = array($util->getMesSimplificado($dado[0]) .'/'. $dado[1], $soma);
+    $data[$i] = array($util->getMesSimplificado($dado[0]) . '/' . $dado[1], $soma);
 
     $i++;
 }
 
 var_dump($data[0]);
-
-
 
 require_once '../classes/phplot-6.2.0/phplot.php';
 
@@ -241,9 +315,6 @@ $plot->DrawGraph();
 
 $html .= '<img src="' . $plot->EncodeImage() . '" alt="Plot Image">';
 
-
-
-
 $dompdf->load_html($html);
 
 //Renderizar o html,
@@ -251,8 +322,8 @@ ob_clean();
 $dompdf->render();
 ////Exibibir a página
 $dompdf->stream(
-    "relatorio_cub",
-    array(
-        "Attachment" => true //Para realizar o download somente alterar para true
-    )
+        "relatorio_cub",
+        array(
+            "Attachment" => true //Para realizar o download somente alterar para true
+        )
 );
