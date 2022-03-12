@@ -2,6 +2,11 @@
 include_once '../classes/Coeficientes.php';
 $ajardinamento = filter_input(INPUT_POST, 'ajardinamento', FILTER_SANITIZE_STRING);
 $area_sem_acabamento = filter_input(INPUT_POST, 'area_sem_acabamento', FILTER_SANITIZE_STRING);
+
+$sem_acabamento_terreo = filter_input(INPUT_POST, 'area_sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+$sem_acabamento_tipo = filter_input(INPUT_POST, 'area_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+$area_sem_acabamento_telhado = filter_input(INPUT_POST, 'area_sem_acabamento_telhado', FILTER_SANITIZE_STRING);
+
 $area_benfeitoria = filter_input(INPUT_POST, 'area_benfeitoria', FILTER_SANITIZE_STRING);
 $area_servico_padrao = filter_input(INPUT_POST, 'area_servico_padrao_baixo', FILTER_SANITIZE_STRING);
 //$area_privativa_autonoma = filter_input(INPUT_POST, 'area_privativa_autonoma', FILTER_SANITIZE_STRING);
@@ -101,6 +106,87 @@ $_SESSION['coeficientes'] = $coeficientes;
 
                         </div>
                         <input name="area_laje" class="form-control" id="area_laje" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                    </div>
+
+                    <?php
+                }
+                ?>
+                <?php
+                if ($sem_acabamento_terreo === "ON") {
+                    ?>
+
+                    <br>
+                    <div class="container">
+                        <h4><center>Área de laje sem acabamento - Térreo</center></h4>
+
+                        <div class="button">
+                            <input type="radio" name="sem_acabamento_terreo" value="0.4" id="a1a"  required=""/>
+                            <label id="radio_1" for="a1a" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                            <input type="radio" name="sem_acabamento_terreo" value="0.5" id="b1b"  required=""/>
+                            <label id="radio_1" for="b1b" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                            <input type="radio" name="sem_acabamento_terreo" value="0.6" id="c1c" required="" />
+                            <label id="radio_1" for="c1c" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                        </div>
+                        <input name="area_laje_terreo" class="form-control" id="area_laje" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                    </div>
+
+                    <?php
+                }
+                ?>
+                <?php
+                if ($sem_acabamento_tipo === "ON") {
+                    ?>
+
+                    <br>
+                    <div class="container">
+                        <h4><center>Área de laje sem acabamento - Tipo</center></h4>
+
+                        <div class="button">
+                            <input type="radio" name="sem_acabamento_tipo" value="0.4" id="a1d"  required=""/>
+                            <label id="radio_1" for="a1d" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                            <input type="radio" name="sem_acabamento_tipo" value="0.5" id="b1e"  required=""/>
+                            <label id="radio_1" for="b1e" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                            <input type="radio" name="sem_acabamento_tipo" value="0.6" id="c1f" required="" />
+                            <label id="radio_1" for="c1f" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                        </div>
+                        <input name="area_laje" class="form-control" id="area_laje_tipo" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                    </div>
+
+                    <?php
+                }
+                ?>
+                <?php
+                if ($sem_acabamento_telhado === "ON") {
+                    ?>
+
+                    <br>
+                    <div class="container">
+                        <h4><center>Área de laje sem acabamento - Telhado</center></h4>
+
+                        <div class="button">
+                            <input type="radio" name="sem_acabamento_telhado" value="0.4" id="a1g"  required=""/>
+                            <label id="radio_1" for="a1g" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                            <input type="radio" name="sem_acabamento_telhado" value="0.5" id="b1h"  required=""/>
+                            <label id="radio_1" for="b1h" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                            <input type="radio" name="sem_acabamento_telhado" value="0.6" id="c1i" required="" />
+                            <label id="radio_1" for="c1i" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                        </div>
+                        <input name="area_laje" class="form-control" id="area_laje_telhado" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
 
 
                     </div>

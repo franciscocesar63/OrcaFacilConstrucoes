@@ -170,47 +170,52 @@ class Coeficientes {
     public function somaDosCub($coef1, $coef2, $cub) {
         $cub1 = $cub;
         $soma1 = 0;
-        $array = array();
-        $array_area = array();
+        $somaCoefXCub = array();
+        $valorArea = array();
         $cnt = 0;
-        // var_dump($coef1);
-        // echo '<br><br><br>';
-        // var_dump($coef2);
-        // echo '<br><br><br>';
-        foreach ($coef1 as $dado) {
-            if ($dado != NULL) {
-                $soma1 = $dado * $cub1;
-                $array[$cnt] = $soma1;
+
+        foreach ($coef1 as $coeficienteMedio) {
+
+            if ($coeficienteMedio != NULL) {
+                $soma1 = $coeficienteMedio * $cub1;
+                $somaCoefXCub[$cnt] = $soma1;
                 // var_dump($cnt);
             }
             $soma1 = 0;
             $cnt++;
         }
         $cnt1 = 0;
-        foreach ($coef2 as $dado1) {
-            if ($dado1 != NULL) {
-                $array[$cnt1] *= $dado1;
-                $array_area[$cnt1] = $dado1;
+        foreach ($coef2 as $area) {
+            if ($area != NULL) {
+                $somaCoefXCub[$cnt1] *= $area;
+                $valorArea[$cnt1] = $area;
             }
             $cnt1++;
         }
         $array_total = array();
-        $array_total[0] = $array;
-        $array_total[1] = $array_area;
+        $array_total[0] = $somaCoefXCub;
+        $array_total[1] = $valorArea;
         return $array_total;
     }
 
     public function somaAreaCub($array) {
         $total = 0;
-//        var_dump($array);
+
         foreach ($array[0] as $indice => $valor) {
             if ($array[0][$indice] != null) {
                 $total += $valor;
-//                var_dump($total);
-//                var_dump($array[$indice]);
             }
         }
         return $total;
+    }
+
+    public function somaAreaPavimentos() {
+        
+    }
+
+    public function resultadoSoma($terreo, $tipo, $telhado, $quantidadePavimentos, $garagem = 0) {
+
+        $resultado = $tipo * $quantidadePavimentos + $terreo + $telhado + $garagem;
     }
 
 }

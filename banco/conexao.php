@@ -1,14 +1,10 @@
 <?php
 
+class Conexao {
 
-class Conexao
-{
-
-
-    public function conectar()
-    {
+    public function conectar() {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=u626289327_tccigor', "u626289327_tccigor", "NE]0gR[5u");
+            $pdo = new PDO('mysql:host=localhost;dbname=igor', "root", "");
             $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
         } catch (PDOException $e) {
             echo 'ERROR: ' . $e->getMessage();
@@ -16,4 +12,5 @@ class Conexao
 
         return $pdo;
     }
+
 }
