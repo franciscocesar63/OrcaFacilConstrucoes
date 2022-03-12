@@ -1,0 +1,21 @@
+.button input[type="radio"] {
+    display: none;
+}
+
+input[type="radio"]:checked + label {
+    border: 1px solid red;
+    background-color: #005cbf;
+    border-radius: 5px;
+    color: #ffffff;
+}
+
+.button #radio_1:hover{
+    background-color: #9fcdff;
+
+}
+.button #radio_1{
+    text-align: center;
+    border: 2px solid #000;
+    border-radius: 5px;
+
+}
