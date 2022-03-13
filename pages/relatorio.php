@@ -120,12 +120,15 @@ if ($_SESSION['residenciasTerreas'] == 'normal') {
     $array_area = $area_coeficientes->somaDosCub($radio_coeficientes, $area_coeficientes, $dado_cub['valor']);
     $valor_cub_total = $area_coeficientes->somaAreaCub($array_area);
 } else {
-    
+
     //GARAGEM.
     $sem_acabamento_garagem = filter_input(INPUT_POST, 'sem_acabamento_garagem', FILTER_SANITIZE_STRING);
     $casa_maquinas_garagem = filter_input(INPUT_POST, 'casa_maquinas_garagem', FILTER_SANITIZE_STRING);
-    $garagem_subsolo_garagem = filter_input(INPUT_POST, 'garagem_subsolo_garagem', FILTER_SANITIZE_STRING);
     $garagem_circulacao_garagem = filter_input(INPUT_POST, 'garagem_circulacao_garagem', FILTER_SANITIZE_STRING);
+
+    $area_laje_garagem = filter_input(INPUT_POST, 'area_laje_garagem', FILTER_SANITIZE_STRING);
+    $area_casa_maquinas_garagem = filter_input(INPUT_POST, 'area_casa_maquinas_garagem', FILTER_SANITIZE_STRING);
+    $area_garagem_circulacao_garagem = filter_input(INPUT_POST, 'area_garagem_circulacao_garagem', FILTER_SANITIZE_STRING);
 
     //TERREO.
     $sem_acabamento_terreo = filter_input(INPUT_POST, 'sem_acabamento_terreo', FILTER_SANITIZE_STRING);
@@ -135,23 +138,32 @@ if ($_SESSION['residenciasTerreas'] == 'normal') {
     $casa_maquinas_terreo = filter_input(INPUT_POST, 'casa_maquinas_terreo', FILTER_SANITIZE_STRING);
     $garagem_circulacao_terreo = filter_input(INPUT_POST, 'garagem_circulacao_terreo', FILTER_SANITIZE_STRING);
     $quintal_terreo = filter_input(INPUT_POST, 'quintal_terreo', FILTER_SANITIZE_STRING);
-    
+
+    $area_laje_terreo = filter_input(INPUT_POST, 'area_laje_terreo', FILTER_SANITIZE_STRING);
+    $area_privativa_com_acabamento_terreo = filter_input(INPUT_POST, 'area_privativa_com_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $area_privativa_sem_acabamento_terreo = filter_input(INPUT_POST, 'area_privativa_sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $area_verde_terreo = filter_input(INPUT_POST, 'area_verde_terreo', FILTER_SANITIZE_STRING);
+    $area_casa_maquinas_terreo = filter_input(INPUT_POST, 'area_casa_maquinas_terreo', FILTER_SANITIZE_STRING);
+    $area_garagem_circulacao_terreo = filter_input(INPUT_POST, 'area_garagem_circulacao_terreo', FILTER_SANITIZE_STRING);
+    $area_quintal_terreo = filter_input(INPUT_POST, 'area_quintal_terreo', FILTER_SANITIZE_STRING);
+
     //TIPO.
     $sem_acabamento_tipo = filter_input(INPUT_POST, 'sem_acabamento_tipo', FILTER_SANITIZE_STRING);
     $privativa_com_acabamento_tipo = filter_input(INPUT_POST, 'privativa_com_acabamento_tipo', FILTER_SANITIZE_STRING);
     $privativa_sem_acabamento_tipo = filter_input(INPUT_POST, 'privativa_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
-    
+
+    $area_laje_tipo = filter_input(INPUT_POST, 'area_laje_tipo', FILTER_SANITIZE_STRING);
+    $area_privativa_com_acabamento_tipo = filter_input(INPUT_POST, 'area_privativa_com_acabamento_tipo', FILTER_SANITIZE_STRING);
+    $area_privativa_sem_acabamento_tipo = filter_input(INPUT_POST, 'area_privativa_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+
     //TELHADO.
-    $sem_acabamento_terreo = filter_input(INPUT_POST, 'sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+    $sem_acabamento_telhado = filter_input(INPUT_POST, 'sem_acabamento_telhado', FILTER_SANITIZE_STRING);
     $verde_telhado = filter_input(INPUT_POST, 'verde_telhado', FILTER_SANITIZE_STRING);
     $casa_maquinas_telhado = filter_input(INPUT_POST, 'casa_maquinas_telhado', FILTER_SANITIZE_STRING);
-    
-    
 
-    $area_laje_garagem = filter_input(INPUT_POST, 'area_laje_garagem', FILTER_SANITIZE_STRING);
-    $area_laje_terreo = filter_input(INPUT_POST, 'area_laje_terreo', FILTER_SANITIZE_STRING);
-    $area_laje_tipo = filter_input(INPUT_POST, 'area_laje_tipo', FILTER_SANITIZE_STRING);
     $area_laje_telhado = filter_input(INPUT_POST, 'area_laje_telhado', FILTER_SANITIZE_STRING);
+    $area_verde_telhado = filter_input(INPUT_POST, 'area_verde_telhado', FILTER_SANITIZE_STRING);
+    $area_casa_maquinas_telhado = filter_input(INPUT_POST, 'area_casa_maquinas_telhado', FILTER_SANITIZE_STRING);
 
     $coeficientes = [$sem_acabamento_terreo, $sem_acabamento_tipo, $sem_acabamento_telhado, $sem_acabamento_garagem];
     $areasCoeficientes = [$area_laje_terreo, $area_laje_tipo, $area_laje_telhado, $area_laje_garagem];
@@ -159,7 +171,7 @@ if ($_SESSION['residenciasTerreas'] == 'normal') {
     $array_garagem = [
         $sem_acabamento_garagem,
         $casa_maquinas_garagem,
-        $garagem_subsolo_garagem,
+        $garagem_subsolo,
         $garagem_circulacao_garagem,
     ];
 
@@ -175,7 +187,7 @@ if ($_SESSION['residenciasTerreas'] == 'normal') {
         $garagem_circulacao_terreo,
         $quintal_terreo,
     ];
-    
+
     $array_tipo = [
         $servico_padrao,
         $sem_acabamento_tipo,
@@ -191,7 +203,6 @@ if ($_SESSION['residenciasTerreas'] == 'normal') {
         $caixa_agua,
         $terraco_laje,
         $barrilete,
-        
     ];
 }
 

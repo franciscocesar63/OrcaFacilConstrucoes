@@ -3,10 +3,31 @@ include_once '../classes/Coeficientes.php';
 $ajardinamento = filter_input(INPUT_POST, 'ajardinamento', FILTER_SANITIZE_STRING);
 $area_sem_acabamento = filter_input(INPUT_POST, 'area_sem_acabamento', FILTER_SANITIZE_STRING);
 
-$sem_acabamento_terreo = filter_input(INPUT_POST, 'area_sem_acabamento_terreo', FILTER_SANITIZE_STRING);
-$sem_acabamento_tipo = filter_input(INPUT_POST, 'area_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
-$area_sem_acabamento_telhado = filter_input(INPUT_POST, 'area_sem_acabamento_telhado', FILTER_SANITIZE_STRING);
+//garagem
+$sem_acabamento_garagem = filter_input(INPUT_POST, 'sem_acabamento_garagem', FILTER_SANITIZE_STRING);
+$casa_maquinas_garagem = filter_input(INPUT_POST, 'casa_maquinas_garagem', FILTER_SANITIZE_STRING);
+$garagem_circulacao_garagem = filter_input(INPUT_POST, 'garagem_circulacao_garagem', FILTER_SANITIZE_STRING);
 
+//terreo
+$sem_acabamento_terreo = filter_input(INPUT_POST, 'sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+$privativa_com_acabamento_terreo = filter_input(INPUT_POST, 'privativa_com_acabamento_terreo', FILTER_SANITIZE_STRING);
+$privativa_sem_acabamento_terreo = filter_input(INPUT_POST, 'privativa_sem_acabamento_terreo', FILTER_SANITIZE_STRING);
+$verde_terreo = filter_input(INPUT_POST, 'verde_terreo', FILTER_SANITIZE_STRING);
+$casa_maquinas_terreo = filter_input(INPUT_POST, 'casa_maquinas_terreo', FILTER_SANITIZE_STRING);
+$garagem_circulacao_terreo = filter_input(INPUT_POST, 'garagem_circulacao_terreo', FILTER_SANITIZE_STRING);
+$quintal_terreo = filter_input(INPUT_POST, 'quintal_terreo', FILTER_SANITIZE_STRING);
+
+//tipo
+$sem_acabamento_tipo = filter_input(INPUT_POST, 'sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+$privativa_com_acabamento_tipo = filter_input(INPUT_POST, 'privativa_com_acabamento_tipo', FILTER_SANITIZE_STRING);
+$privativa_sem_acabamento_tipo = filter_input(INPUT_POST, 'privativa_sem_acabamento_tipo', FILTER_SANITIZE_STRING);
+
+//telhado
+$sem_acabamento_telhado = filter_input(INPUT_POST, 'sem_acabamento_telhado', FILTER_SANITIZE_STRING);
+$verde_telhado = filter_input(INPUT_POST, 'verde_telhado', FILTER_SANITIZE_STRING);
+$casa_maquinas_telhado = filter_input(INPUT_POST, 'casa_maquinas_telhado', FILTER_SANITIZE_STRING);
+
+//padrão
 $area_benfeitoria = filter_input(INPUT_POST, 'area_benfeitoria', FILTER_SANITIZE_STRING);
 $area_servico_padrao = filter_input(INPUT_POST, 'area_servico_padrao_baixo', FILTER_SANITIZE_STRING);
 //$area_privativa_autonoma = filter_input(INPUT_POST, 'area_privativa_autonoma', FILTER_SANITIZE_STRING);
@@ -55,10 +76,672 @@ $_SESSION['coeficientes'] = $coeficientes;
         </div>
         <div class="container" >
 
+
             <form method="POST" action="relatorio.php">
 
-                <!--<div class="dados" style="margin-top: 15px; ">-->
-                <!--<div class="col-6" style="" >-->
+                <?php
+                if ($_SESSION['isNormal'] == 'nao' && $_SESSION['GARAGEMPIS'] == 'sim') {
+                    ?>
+                    <center><h3>Garagem</h3></center>
+
+                    <div >
+                        <?php
+                        if ($sem_acabamento_garagem === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de laje sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="sem_acabamento_garagem" value="0.4" id="a1aa"  required=""/>
+                                    <label id="radio_1" for="a1aa" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                                    <input type="radio" name="sem_acabamento_garagem" value="0.5" id="b1bb"  required=""/>
+                                    <label id="radio_1" for="b1bb" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="sem_acabamento_garagem" value="0.6" id="c1cc" required="" />
+                                    <label id="radio_1" for="c1cc" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                                </div>
+                                <input name="area_laje_garagem" class="form-control" id="area_laje8" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($casa_maquinas_garagem === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Casa de máquinas</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="casa_maquinas_garagem" value="0.5" id="a10a"  required=""/>
+                                    <label id="radio_1" for="a10a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="casa_maquinas_garagem" value="0.63" id="b10a"  required=""/>
+                                    <label id="radio_1" for="b10a" style="width: 32%;">Padrão médio <br>(C = 0,63)</label>
+
+                                    <input type="radio" name="casa_maquinas_garagem" value="0.75" id="c10a" required="" />
+                                    <label id="radio_1" for="c10a" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_casa_maquinas_garagem" class="form-control" id="casa_maquinas" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($coeficientes->getGaragem_subsolo() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Garagem (Subsolo)</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="garagem_subsolo" value="0.50" id="a12"  required=""/>
+                                    <label id="radio_1" for="a12" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="garagem_subsolo" value="0.625" id="b12"  required=""/>
+                                    <label id="radio_1" for="b12" style="width: 32%;">Padrão médio <br>(C = 0,625)</label>
+
+                                    <input type="radio" name="garagem_subsolo" value="0.75" id="c12" required="" />
+                                    <label id="radio_1" for="c12" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_garagem_subsolo" class="form-control" id="garagem_subsolo" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($garagem_circulacao_garagem === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Garagem ou circulação</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="garagem_circulacao_garagem" value="0.50" id="a13a"  required=""/>
+                                    <label id="radio_1" for="a13a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="garagem_circulacao_garagem" value="0.60" id="b13a"  required=""/>
+                                    <label id="radio_1" for="b13a" style="width: 32%;">Padrão médio <br>(C = 0,60)</label>
+
+                                    <input type="radio" name="garagem_circulacao_garagem" value="0.70" id="c13a" required="" />
+                                    <label id="radio_1" for="c13a" style="width: 32%;">Padrão alto <br>(C = 0,70)</label>
+
+                                </div>
+                                <input name="area_garagem_circulacao_garagem" class="form-control" id="garagem_circulacao" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+
+
+                <?php } ?>
+
+                <?php
+                if ($_SESSION['isNormal'] == 'nao') {
+                    ?>
+                    <h3>Terreo</h3>
+
+
+                    <div >
+
+                        <?php
+                        if ($coeficientes->getAjardinamento() === "ON") {
+                            ?>
+
+                            <div class="container">
+                                <h4><center>Ajardinamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="ajardinamento" value="0.3" id="a"  required=""/>
+                                    <label id="radio_1" for="a" style="width: 32%;">Padrão baixo <br>(C = 0,30)</label>
+
+                                    <input type="radio" name="ajardinamento" value="0.4" id="b"  required=""/>
+                                    <label id="radio_1" for="b" style="width: 32%;">Padrão médio <br>(C = 0,40)</label>
+
+                                    <input type="radio" name="ajardinamento" value="0.5" id="c" required="" />
+                                    <label id="radio_1" for="c" style="width: 32%;">Padrão alto <br>(C = 0,50)</label>
+
+                                </div>
+                                <input name="area_ajardinamento" class="form-control" id="area_ajardinamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+
+                        <?php
+                        if ($sem_acabamento_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de laje sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="sem_acabamento_terreo" value="0.4" id="a1a"  required=""/>
+                                    <label id="radio_1" for="a1a" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                                    <input type="radio" name="sem_acabamento_terreo" value="0.5" id="b1b"  required=""/>
+                                    <label id="radio_1" for="b1b" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="sem_acabamento_terreo" value="0.6" id="c1c" required="" />
+                                    <label id="radio_1" for="c1c" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                                </div>
+                                <input name="area_laje_terreo" class="form-control" id="area_laje" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($coeficientes->getArea_benfeitoria() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de projeção do terreno sem benfeitoria</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="benfeitoria" value="0" id="b2"  required=""/>
+                                    <label id="radio_1" for="b2" style="width: 100%;">Padrão<br>(C = 0)</label>
+
+                                </div>
+                                <input name="area_benfeitoria" class="form-control" id="area_benfeitoria" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($privativa_com_acabamento_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área privativa salas com acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="privativa_com_acabamento_terreo" value="1" id="a5a"  required=""/>
+                                    <label id="radio_1" for="a5a" style="width: 100%;">Padrão <br>(C = 1,00)</label>
+
+                                </div>
+                                <input name="area_privativa_com_acabamento_terreo" class="form-control" id="area_privativa_com_acabamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($privativa_sem_acabamento_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área privativa salas sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="privativa_sem_acabamento_terreo" value="0.75" id="a6a"  required=""/>
+                                    <label id="radio_1" for="a6a" style="width: 32%;">Padrão baixo <br>(C = 0,75)</label>
+
+                                    <input type="radio" name="privativa_sem_acabamento_terreo" value="0.83" id="b6a"  required=""/>
+                                    <label id="radio_1" for="b6a" style="width: 32%;">Padrão médio <br>(C = 0,83)</label>
+
+                                    <input type="radio" name="privativa_sem_acabamento_terreo" value="0.9" id="c6a" required="" />
+                                    <label id="radio_1" for="c6a" style="width: 32%;">Padrão alto <br>(C = 0,90)</label>
+
+                                </div>
+                                <input name="area_privativa_sem_acabamento_terreo" class="form-control" id="area_privativa_sem_acabamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($verde_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área Verde e outros</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="verde_terreo" value="0.15" id="a7a"  required=""/>
+                                    <label id="radio_1" for="a7a" style="width: 32%;">Padrão baixo <br>(C = 0,15)</label>
+
+                                    <input type="radio" name="verde_terreo" value="0.20" id="b7a"  required=""/>
+                                    <label id="radio_1" for="b7a" style="width: 32%;">Padrão médio <br>(C = 0,20)</label>
+
+                                    <input type="radio" name="verde_terreo" value="0.25" id="c7a" required="" />
+                                    <label id="radio_1" for="c7a" style="width: 32%;">Padrão alto <br>(C = 0,25)</label>
+
+                                </div>
+                                <input name="area_verde_terreo" class="form-control" id="area_verde" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($coeficientes->getEstacionamento_terreno() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Estacionamento sobre terreno</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="estacionamento_terreno" value="0.05" id="a11"  required=""/>
+                                    <label id="radio_1" for="a11" style="width: 32%;">Padrão baixo <br>(C = 0,05)</label>
+
+                                    <input type="radio" name="estacionamento_terreno" value="0.075" id="b11"  required=""/>
+                                    <label id="radio_1" for="b11" style="width: 32%;">Padrão médio <br>(C = 0,075)</label>
+
+                                    <input type="radio" name="estacionamento_terreno" value="0.1" id="c11" required="" />
+                                    <label id="radio_1" for="c11" style="width: 32%;">Padrão alto <br>(C = 0,10)</label>
+
+                                </div>
+                                <input name="area_estacionamento_terreno" class="form-control" id="estacionamento_terreno" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($casa_maquinas_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Casa de máquinas</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="casa_maquinas_terreo" value="0.5" id="a10a"  required=""/>
+                                    <label id="radio_1" for="a10a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="casa_maquinas_terreo" value="0.63" id="b10a"  required=""/>
+                                    <label id="radio_1" for="b10a" style="width: 32%;">Padrão médio <br>(C = 0,63)</label>
+
+                                    <input type="radio" name="casa_maquinas_terreo" value="0.75" id="c10a" required="" />
+                                    <label id="radio_1" for="c10a" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_casa_maquinas_terreo" class="form-control" id="casa_maquinas" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($garagem_circulacao_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Garagem ou circulação</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="garagem_circulacao_terreo" value="0.50" id="a13a"  required=""/>
+                                    <label id="radio_1" for="a13a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="garagem_circulacao_terreo" value="0.60" id="b13a"  required=""/>
+                                    <label id="radio_1" for="b13a" style="width: 32%;">Padrão médio <br>(C = 0,60)</label>
+
+                                    <input type="radio" name="garagem_circulacao_terreo" value="0.70" id="c13a" required="" />
+                                    <label id="radio_1" for="c13a" style="width: 32%;">Padrão alto <br>(C = 0,70)</label>
+
+                                </div>
+                                <input name="area_garagem_circulacao_terreo" class="form-control" id="garagem_circulacao" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($quintal_terreo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Piscinas, quintais, entre outros</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="quintal_terreo" value="0.50" id="a14a"  required=""/>
+                                    <label id="radio_1" for="a14a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="quintal_terreo" value="0.625" id="b14a"  required=""/>
+                                    <label id="radio_1" for="b14a" style="width: 32%;">Padrão médio <br>(C = 0,625)</label>
+
+                                    <input type="radio" name="quintal_terreo" value="0.75" id="c14a" required="" />
+                                    <label id="radio_1" for="c14a" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_quintal_terreo" class="form-control" id="quintal" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+
+
+
+                    </div>
+
+
+
+
+                <?php } ?>
+
+                <?php
+                if ($_SESSION['isNormal'] == 'nao') {
+                    ?>
+                    <h3>Tipo</h3>
+
+                    <div >
+
+
+                        <?php
+                        if ($coeficientes->getArea_servico_padrao() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de serviço - residência unifamiliar padrão baixo (aberta)</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="servico_padrao" value="0.5" id="b3"  required=""/>
+                                    <label id="radio_1" for="b3" style="width: 100%;">Padrão<br>(C = 0,50)</label>
+
+                                </div>
+                                <input name="area_servico_padrao" class="form-control" id="area_servico_padrao" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($sem_acabamento_tipo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de laje sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="sem_acabamento_tipo" value="0.4" id="a1d"  required=""/>
+                                    <label id="radio_1" for="a1d" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                                    <input type="radio" name="sem_acabamento_tipo" value="0.5" id="b1e"  required=""/>
+                                    <label id="radio_1" for="b1e" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="sem_acabamento_tipo" value="0.6" id="c1f" required="" />
+                                    <label id="radio_1" for="c1f" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                                </div>
+                                <input name="area_laje_tipo" class="form-control" id="area_laje_tipo" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+
+
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($privativa_com_acabamento_tipo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área privativa salas com acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="privativa_com_acabamento_tipo" value="1" id="a5a"  required=""/>
+                                    <label id="radio_1" for="a5a" style="width: 100%;">Padrão <br>(C = 1,00)</label>
+
+                                </div>
+                                <input name="area_privativa_com_acabamento_tipo" class="form-control" id="area_privativa_com_acabamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($privativa_sem_acabamento_tipo === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área privativa salas sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="privativa_sem_acabamento_tipo" value="0.75" id="a6a"  required=""/>
+                                    <label id="radio_1" for="a6a" style="width: 32%;">Padrão baixo <br>(C = 0,75)</label>
+
+                                    <input type="radio" name="privativa_sem_acabamento_tipo" value="0.83" id="b6a"  required=""/>
+                                    <label id="radio_1" for="b6a" style="width: 32%;">Padrão médio <br>(C = 0,83)</label>
+
+                                    <input type="radio" name="privativa_sem_acabamento_tipo" value="0.9" id="c6a" required="" />
+                                    <label id="radio_1" for="c6a" style="width: 32%;">Padrão alto <br>(C = 0,90)</label>
+
+                                </div>
+                                <input name="area_privativa_sem_acabamento_tipo" class="form-control" id="area_privativa_sem_acabamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($coeficientes->getVarandas() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Varandas</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="varandas" value="0.75" id="a16"  required=""/>
+                                    <label id="radio_1" for="a16" style="width: 32%;">Padrão baixo <br>(C = 0,75)</label>
+
+                                    <input type="radio" name="varandas" value="0.875" id="b16"  required=""/>
+                                    <label id="radio_1" for="b16" style="width: 32%;">Padrão médio <br>(C = 0,875)</label>
+
+                                    <input type="radio" name="varandas" value="1" id="c16" required="" />
+                                    <label id="radio_1" for="c16" style="width: 32%;">Padrão alto <br>(C = 1,00)</label>
+
+                                </div>
+                                <input name="area_varandas" class="form-control" id="varandas" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                    </div>
+
+                <?php } ?>
+
+                <?php
+                if ($_SESSION['isNormal'] == 'nao') {
+                    ?>
+                    <h3>Telhado</h3>
+
+                    <div>
+                        <?php
+                        if ($sem_acabamento_telhado === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área de laje sem acabamento</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="sem_acabamento_telhado" value="0.4" id="a1g"  required=""/>
+                                    <label id="radio_1" for="a1g" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
+
+                                    <input type="radio" name="sem_acabamento_telhado" value="0.5" id="b1h"  required=""/>
+                                    <label id="radio_1" for="b1h" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="sem_acabamento_telhado" value="0.6" id="c1i" required="" />
+                                    <label id="radio_1" for="c1i" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                                </div>
+                                <input name="area_laje_telhado" class="form-control" id="area_laje_telhado" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+
+                            <?php
+                        }
+                        ?>
+
+
+                        <?php
+                        if ($verde_telhado === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Área Verde e outros</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="verde_telhado" value="0.15" id="a7a"  required=""/>
+                                    <label id="radio_1" for="a7a" style="width: 32%;">Padrão baixo <br>(C = 0,15)</label>
+
+                                    <input type="radio" name="verde_telhado" value="0.20" id="b7a"  required=""/>
+                                    <label id="radio_1" for="b7a" style="width: 32%;">Padrão médio <br>(C = 0,20)</label>
+
+                                    <input type="radio" name="verde_telhado" value="0.25" id="c7a" required="" />
+                                    <label id="radio_1" for="c7a" style="width: 32%;">Padrão alto <br>(C = 0,25)</label>
+
+                                </div>
+                                <input name="area_verde_telhado" class="form-control" id="area_verde" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($casa_maquinas_telhado === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Casa de máquinas</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="casa_maquinas_telhado" value="0.5" id="a10a"  required=""/>
+                                    <label id="radio_1" for="a10a" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="casa_maquinas_telhado" value="0.63" id="b10a"  required=""/>
+                                    <label id="radio_1" for="b10a" style="width: 32%;">Padrão médio <br>(C = 0,63)</label>
+
+                                    <input type="radio" name="casa_maquinas_telhado" value="0.75" id="c10a" required="" />
+                                    <label id="radio_1" for="c10a" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_casa_maquinas_telhado" class="form-control" id="casa_maquinas" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($coeficientes->getCaixa_agua() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Caixa d'água</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="caixa_agua" value="0.5" id="a9"  required=""/>
+                                    <label id="radio_1" for="a9" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="caixa_agua" value="0.63" id="b9"  required=""/>
+                                    <label id="radio_1" for="b9" style="width: 32%;">Padrão médio <br>(C = 0,63)</label>
+
+                                    <input type="radio" name="caixa_agua" value="0.75" id="c9" required="" />
+                                    <label id="radio_1" for="c9" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_caixa_agua" class="form-control" id="caixa_agua" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                        <?php
+                        if ($coeficientes->getTerraco_laje() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Terraços ou áreas descobertas sobre lajes</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="terraco_laje" value="0.30" id="a15"  required=""/>
+                                    <label id="radio_1" for="a15" style="width: 32%;">Padrão baixo <br>(C = 0,30)</label>
+
+                                    <input type="radio" name="terraco_laje" value="0.45" id="b15"  required=""/>
+                                    <label id="radio_1" for="b15" style="width: 32%;">Padrão médio <br>(C = 0,45)</label>
+
+                                    <input type="radio" name="terraco_laje" value="0.60" id="c15" required="" />
+                                    <label id="radio_1" for="c15" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
+
+                                </div>
+                                <input name="area_terraco_laje" class="form-control" id="terraco_laje" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+
+                        <?php
+                        if ($coeficientes->getBarrilete() === "ON") {
+                            ?>
+
+                            <br>
+                            <div class="container">
+                                <h4><center>Barrilete</center></h4>
+
+                                <div class="button">
+                                    <input type="radio" name="barrilete" value="0.5" id="a8"  required=""/>
+                                    <label id="radio_1" for="a8" style="width: 32%;">Padrão baixo <br>(C = 0,50)</label>
+
+                                    <input type="radio" name="barrilete" value="0.63" id="b8"  required=""/>
+                                    <label id="radio_1" for="b8" style="width: 32%;">Padrão médio <br>(C = 0,63)</label>
+
+                                    <input type="radio" name="barrilete" value="0.75" id="c8" required="" />
+                                    <label id="radio_1" for="c8" style="width: 32%;">Padrão alto <br>(C = 0,75)</label>
+
+                                </div>
+                                <input name="area_barrilete" class="form-control" id="barrilete" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
+                            </div>
+                            <?php
+                        }
+                        ?>
+                    </div>
+
+                <?php } ?>
+
+
                 <br>
                 <?php
                 if ($coeficientes->getAjardinamento() === "ON") {
@@ -113,87 +796,10 @@ $_SESSION['coeficientes'] = $coeficientes;
                     <?php
                 }
                 ?>
-                <?php
-                if ($sem_acabamento_terreo === "ON") {
-                    ?>
-
-                    <br>
-                    <div class="container">
-                        <h4><center>Área de laje sem acabamento - Térreo</center></h4>
-
-                        <div class="button">
-                            <input type="radio" name="sem_acabamento_terreo" value="0.4" id="a1a"  required=""/>
-                            <label id="radio_1" for="a1a" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
-
-                            <input type="radio" name="sem_acabamento_terreo" value="0.5" id="b1b"  required=""/>
-                            <label id="radio_1" for="b1b" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
-
-                            <input type="radio" name="sem_acabamento_terreo" value="0.6" id="c1c" required="" />
-                            <label id="radio_1" for="c1c" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
-
-                        </div>
-                        <input name="area_laje_terreo" class="form-control" id="area_laje" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
 
 
-                    </div>
-
-                    <?php
-                }
-                ?>
-                <?php
-                if ($sem_acabamento_tipo === "ON") {
-                    ?>
-
-                    <br>
-                    <div class="container">
-                        <h4><center>Área de laje sem acabamento - Tipo</center></h4>
-
-                        <div class="button">
-                            <input type="radio" name="sem_acabamento_tipo" value="0.4" id="a1d"  required=""/>
-                            <label id="radio_1" for="a1d" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
-
-                            <input type="radio" name="sem_acabamento_tipo" value="0.5" id="b1e"  required=""/>
-                            <label id="radio_1" for="b1e" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
-
-                            <input type="radio" name="sem_acabamento_tipo" value="0.6" id="c1f" required="" />
-                            <label id="radio_1" for="c1f" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
-
-                        </div>
-                        <input name="area_laje" class="form-control" id="area_laje_tipo" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
 
 
-                    </div>
-
-                    <?php
-                }
-                ?>
-                <?php
-                if ($sem_acabamento_telhado === "ON") {
-                    ?>
-
-                    <br>
-                    <div class="container">
-                        <h4><center>Área de laje sem acabamento - Telhado</center></h4>
-
-                        <div class="button">
-                            <input type="radio" name="sem_acabamento_telhado" value="0.4" id="a1g"  required=""/>
-                            <label id="radio_1" for="a1g" style="width: 32%;">Padrão baixo <br>(C = 0,40)</label>
-
-                            <input type="radio" name="sem_acabamento_telhado" value="0.5" id="b1h"  required=""/>
-                            <label id="radio_1" for="b1h" style="width: 32%;">Padrão médio <br>(C = 0,50)</label>
-
-                            <input type="radio" name="sem_acabamento_telhado" value="0.6" id="c1i" required="" />
-                            <label id="radio_1" for="c1i" style="width: 32%;">Padrão alto <br>(C = 0,60)</label>
-
-                        </div>
-                        <input name="area_laje" class="form-control" id="area_laje_telhado" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
-
-
-                    </div>
-
-                    <?php
-                }
-                ?>
 
 
 
@@ -542,12 +1148,21 @@ $_SESSION['coeficientes'] = $coeficientes;
                 }
                 ?>
 
+
+
+
                 <!--</div>-->
 
                 <!--</div>-->
                 <br>
                 <center><button class="btn btn-primary" type="submit" onclick="">Gerar relatório</button></center>
             </form>
+
+
+
+
+
+
         </div>
 
         <?php

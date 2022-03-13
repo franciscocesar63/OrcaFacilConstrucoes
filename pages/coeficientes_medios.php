@@ -62,6 +62,8 @@
 
                                 <?php
                                 if ($projeto == 'RB_R_1' || $projeto == 'RN_R_1' || $projeto == 'RA_R_1' || $projeto == 'GI_RP1Q' || $projeto == 'GI_GI') {
+                                    $_SESSION['isNormal'] = 'sim';
+                                    $_SESSION['GARAGEMPIS'] = 'nao';
                                     ?>
                                     <div class="form-group">
                                         <div class="input-group mb-3">
@@ -248,6 +250,8 @@
                             <?php
                             if ($projeto == 'RN_R_8' || $projeto == 'RA_R_8' || $projeto == 'RA_R_16' || $projeto == 'RN_R_16' || $projeto == 'CN_CSL_8' || $projeto == 'CN_CAL_8' || $projeto == 'CN_CSL_16' || $projeto == 'CA_CSL_8' || $projeto == 'CA_CSL_16'
                             ) {
+                                $_SESSION['isNormal'] = 'nao';
+                                $_SESSION['GARAGEMPIS'] = 'sim';
                                 ?>
                                 <div class="col-3">
                                     <h3>Garagem</h3>
@@ -435,7 +439,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_com_acabamento" id="area_privativa_com_acabamento" value="ON" >
+                                                    <input type="checkbox" name="area_privativa_com_acabamento_tipo" id="area_privativa_com_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas com acabamento</h5>
@@ -550,6 +554,8 @@
 
                                 <?php
                                 if ($projeto == 'RB_PIS' || $projeto == 'RN_PP_4' || $projeto == 'RB_PP_4' || $projeto == 'RB_R_8') {
+                                    $_SESSION['isNormal'] = 'nao';
+                                    $_SESSION['GARAGEMPIS'] = 'nao';
                                     ?>
 
                                     <h3>Térreo ou Pilotis</h3>
