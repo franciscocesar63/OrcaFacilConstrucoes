@@ -260,7 +260,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_garagem" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -270,7 +270,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="casa_maquinas" id="casa_maquinas" value="ON" >
+                                                    <input type="checkbox" name="casa_maquinas_garagem" id="casa_maquinas" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Casa de máquinas</h5>
@@ -291,7 +291,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="garagem_circulacao" id="garagem_circulacao" value="ON" >
+                                                    <input type="checkbox" name="garagem_circulacao_garagem" id="garagem_circulacao" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Garagem ou circulação</h5>
@@ -327,7 +327,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_terreo" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -348,7 +348,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_com_acabamento" id="area_privativa_com_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_com_acabamento_terreo" id="area_privativa_com_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas com acabamento</h5>
@@ -358,7 +358,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_sem_acabamento" id="area_privativa_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_sem_acabamento_terreo" id="area_privativa_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas sem acabamento</h5>
@@ -369,7 +369,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_verde" id="area_verde" value="ON" >
+                                                    <input type="checkbox" name="verde_terreo" id="area_verde" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área verde e outros</h5>
@@ -390,7 +390,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="casa_maquinas" id="casa_maquinas" value="ON" >
+                                                    <input type="checkbox" name="casa_maquinas_terreo" id="casa_maquinas" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Casa de máquinas</h5>
@@ -428,7 +428,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_tipo" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -439,7 +439,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_com_acabamento_tipo" id="area_privativa_com_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_com_acabamento_tipo" id="area_privativa_com_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas com acabamento</h5>
@@ -449,7 +449,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_sem_acabamento" id="area_privativa_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_sem_acabamento_tipo" id="area_privativa_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas sem acabamento</h5>
@@ -481,7 +481,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_telhado" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -491,7 +491,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_verde" id="area_verde" value="ON" >
+                                                    <input type="checkbox" name="verde_telhado" id="area_verde" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área verde e outros</h5>
@@ -511,7 +511,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="casa_maquinas" id="casa_maquinas" value="ON" >
+                                                    <input type="checkbox" name="casa_maquinas_telhado" id="casa_maquinas" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Casa de máquinas</h5>
@@ -575,7 +575,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento_terreo" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_terreo" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -597,7 +597,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_com_acabamento" id="area_privativa_com_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_com_acabamento_terreo" id="area_privativa_com_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas com acabamento</h5>
@@ -607,7 +607,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_sem_acabamento" id="area_privativa_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_sem_acabamento_terreo" id="area_privativa_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas sem acabamento</h5>
@@ -618,7 +618,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_verde" id="area_verde" value="ON" >
+                                                    <input type="checkbox" name="verde_terreo" id="area_verde" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área verde e outros</h5>
@@ -639,7 +639,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="casa_maquinas" id="casa_maquinas" value="ON" >
+                                                    <input type="checkbox" name="casa_maquinas_terreo" id="casa_maquinas" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Casa de máquinas</h5>
@@ -660,7 +660,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="garagem_circulacao" id="garagem_circulacao" value="ON" >
+                                                    <input type="checkbox" name="garagem_circulacao_terreo" id="garagem_circulacao" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Garagem ou circulação</h5>
@@ -670,7 +670,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="quintal" id="quintal" value="ON" >
+                                                    <input type="checkbox" name="quintal_terreo" id="quintal" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Piscinas, quintais, entre outros</h5>
@@ -696,7 +696,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento_tipo" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_tipo" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -707,7 +707,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_com_acabamento" id="area_privativa_com_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_com_acabamento_tipo" id="area_privativa_com_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas com acabamento</h5>
@@ -717,7 +717,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_privativa_sem_acabamento" id="area_privativa_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="privativa_sem_acabamento_tipo" id="area_privativa_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área privativa - Salas sem acabamento</h5>
@@ -749,7 +749,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_sem_acabamento_telhado" id="area_sem_acabamento" value="ON" >
+                                                    <input type="checkbox" name="sem_acabamento_telhado" id="area_sem_acabamento" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área de laje sem acabamento</h5>
@@ -759,7 +759,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="area_verde" id="area_verde" value="ON" >
+                                                    <input type="checkbox" name="verde_telhado" id="area_verde" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Área verde e outros</h5>
@@ -779,7 +779,7 @@
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                                 <div class="input-group-text">
-                                                    <input type="checkbox" name="casa_maquinas" id="casa_maquinas" value="ON" >
+                                                    <input type="checkbox" name="casa_maquinas_telhado" id="casa_maquinas" value="ON" >
                                                 </div>
                                             </div>
                                             <h5 class="form-control">Casa de máquinas</h5>

@@ -286,8 +286,8 @@ $_SESSION['coeficientes'] = $coeficientes;
                                 <h4><center>Área privativa salas com acabamento</center></h4>
 
                                 <div class="button">
-                                    <input type="radio" name="privativa_com_acabamento_terreo" value="1" id="a5a"  required=""/>
-                                    <label id="radio_1" for="a5a" style="width: 100%;">Padrão <br>(C = 1,00)</label>
+                                    <input type="radio" name="privativa_com_acabamento_terreo" value="1" id="a5asdf"  required=""/>
+                                    <label id="radio_1" for="a5asdf" style="width: 100%;">Padrão <br>(C = 1,00)</label>
 
                                 </div>
                                 <input name="area_privativa_com_acabamento_terreo" class="form-control" id="area_privativa_com_acabamento" type="number" placeholder="Área do cômodo (m²)" style="margin-top: 10px;" step="0.0000001" required="">
@@ -665,7 +665,7 @@ $_SESSION['coeficientes'] = $coeficientes;
                         }
                         ?>
                         <?php
-                        if ($coeficientes->getCaixa_agua() === "ON") {
+                        if ($coeficientes->getCaixa_agua() === "ON" && $_SESSION['isNormal'] != 'nao') {
                             ?>
 
                             <br>
@@ -689,7 +689,7 @@ $_SESSION['coeficientes'] = $coeficientes;
                         }
                         ?>
                         <?php
-                        if ($coeficientes->getTerraco_laje() === "ON") {
+                        if ($coeficientes->getTerraco_laje() === "ON" && $_SESSION['isNormal'] != 'nao') {
                             ?>
 
                             <br>
@@ -714,7 +714,7 @@ $_SESSION['coeficientes'] = $coeficientes;
                         ?>
 
                         <?php
-                        if ($coeficientes->getBarrilete() === "ON") {
+                        if ($coeficientes->getBarrilete() === "ON" && $_SESSION['isNormal'] != 'nao') {
                             ?>
 
                             <br>
@@ -744,7 +744,7 @@ $_SESSION['coeficientes'] = $coeficientes;
 
                 <br>
                 <?php
-                if ($coeficientes->getAjardinamento() === "ON") {
+                if ($coeficientes->getAjardinamento() === "ON" && $_SESSION['isNormal'] != 'nao') {
                     ?>
 
                     <div class="container">
@@ -807,7 +807,7 @@ $_SESSION['coeficientes'] = $coeficientes;
 
 
                 <?php
-                if ($coeficientes->getArea_benfeitoria() === "ON") {
+                if ($coeficientes->getArea_benfeitoria() === "ON" && $_SESSION['isNormal'] != 'nao') {
                     ?>
 
                     <br>
@@ -829,7 +829,7 @@ $_SESSION['coeficientes'] = $coeficientes;
                 ?>
 
                 <?php
-                if ($coeficientes->getArea_servico_padrao() === "ON") {
+                if ($coeficientes->getArea_servico_padrao() === "ON" && $_SESSION['isNormal'] != 'nao') {
                     ?>
 
                     <br>
@@ -1025,7 +1025,7 @@ $_SESSION['coeficientes'] = $coeficientes;
 
 
                 <?php
-                if ($coeficientes->getGaragem_subsolo() === "ON") {
+                if ($coeficientes->getGaragem_subsolo() === "ON" && $_SESSION['isNormal'] != 'nao') {
                     ?>
 
                     <br>
@@ -1124,7 +1124,7 @@ $_SESSION['coeficientes'] = $coeficientes;
 
 
                 <?php
-                if ($coeficientes->getVarandas() === "ON") {
+                if ($coeficientes->getVarandas() === "ON" && $_SESSION['isNormal'] != 'nao') {
                     ?>
 
                     <br>
