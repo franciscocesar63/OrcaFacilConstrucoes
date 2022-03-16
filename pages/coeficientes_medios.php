@@ -40,6 +40,9 @@
             $variacao = "";
             $orcamento = new Orcamento($nome_obra, $regiao, $ano, $mes, $desoneracao, $variacao, $projeto, $area_edificacao, $quantidade_pavimentos);
             session_start();
+
+            $_SESSION['quantidadePavimentos'] = $quantidade_pavimentos;
+
             $_SESSION['orcamento'] = $orcamento;
             if ($projeto == 'RB_R_1' || $projeto == 'RN_R_1' || $projeto == 'RA_R_1' || $projeto == 'GI_RP1Q' || $projeto == 'GI_GI') {
                 $_SESSION['residenciasTerreas'] = 'normal';
@@ -476,7 +479,7 @@
                                 </div>
                                 <div class="col-3">
 
-                                    <h3>Telhado</h3>
+                                    <h3>Cobertura</h3>
                                     <div class="form-group">
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">

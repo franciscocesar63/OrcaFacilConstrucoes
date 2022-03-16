@@ -9,7 +9,7 @@ class CoeficienteDAO {
         $pdo = $conexao->conectar();
         $query = $pdo->prepare("SELECT * FROM cub where mes regexp '" . $mes . "' AND"
                 . " estado regexp '" . $regiao . "' and desoneracao = " . $desoneracao . " and padrao regexp '" . $padrao . "'
-     and tipo regexp '" . $tipo . "'");
+     ");
 
         $query->execute();
         $dado_cub = $query->fetch(PDO::FETCH_ASSOC);
@@ -21,7 +21,7 @@ class CoeficienteDAO {
         $pdo = $conexao->conectar();
         $query = $pdo->prepare("SELECT * FROM cub where mes regexp '" . $mes . "' AND"
                 . " estado regexp '" . $regiao . "' and desoneracao = " . $desoneracao . " and padrao regexp '" . $padrao . "'
-     and tipo regexp '" . $tipo . "' and ano regexp '" . $ano . "'");
+      and ano regexp '" . $ano . "'");
 
         $query->execute();
         $dado_cub = $query->fetch(PDO::FETCH_ASSOC);

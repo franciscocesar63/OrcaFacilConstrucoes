@@ -167,19 +167,25 @@ class Coeficientes {
         $this->varandas = $varandas;
     }
 
-    public function somaDosCub($coef1, $coef2, $cub) {
+    public function somaDosCub($coef1, $coef2, $cub, $pavimentos = -1) {
         $cub1 = $cub;
         $soma1 = 0;
         $somaCoefXCub = array();
         $valorArea = array();
         $cnt = 0;
-
         foreach ($coef1 as $coeficienteMedio) {
 
             if ($coeficienteMedio != NULL) {
+                if ($cnt >= 14 && $cnt <= 18 && $pavimentos != -1) {
+                    echo $cnt . '<br>';
+                    $soma1 = $coeficienteMedio * $cub1 * $pavimentos;
+                    $somaCoefXCub[$cnt] = $soma1;
+                    $cnt++;
+                    continue;
+                }
+
                 $soma1 = $coeficienteMedio * $cub1;
                 $somaCoefXCub[$cnt] = $soma1;
-                // var_dump($cnt);
             }
             $soma1 = 0;
             $cnt++;
